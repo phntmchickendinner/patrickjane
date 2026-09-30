@@ -2,134 +2,55 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Patrick Jane Meme</title>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
-        rel="stylesheet"
-    >
 
     <style>
         * {
             box-sizing: border-box;
         }
 
+        html,
         body {
-            background-color: #9e9e99;
-            font-family: 'Comic Neue', sans-serif;
             margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
             overflow: hidden;
         }
 
-        /* Overlay */
-        .overlay {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 10;
-        }
-
-        .overlay-body {
-            background-color: #8e8f89;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .overlay-title {
-            font-size: 24px;
-            color: #4e4f43;
-            margin: 0 0 16px;
-        }
-
-        .overlay-button {
-            background-color: #6f706b;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            margin: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-family: inherit;
-        }
-
-        .overlay-button:hover {
-            background-color: #595a55;
-        }
-
-        /* Video */
-        .scare {
+        .video-container {
             position: fixed;
             inset: 0;
             width: 100vw;
             height: 100vh;
-            z-index: 1;
-            display: none;
-            background: black;
+            background: #000;
         }
 
-        .scare iframe {
+        .video-container iframe {
             width: 100%;
             height: 100%;
             border: 0;
+            display: block;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Question -->
-    <div id="overlay" class="overlay">
-        <div class="overlay-body">
-            <p class="overlay-title">
-                Do you know Patrick Jane?
-            </p>
-
-            <button id="accept-button" class="overlay-button">
-                yes XD
-            </button>
-
-            <button id="decline-button" class="overlay-button">
-                Nope
-            </button>
-        </div>
-    </div>
-
-    <!-- Streamable Video -->
-    <div id="scare" class="scare">
+    <div class="video-container">
 
         <iframe
-            id="video"
-            src="https://streamable.com/e/zy5e9x"
+            src="https://streamable.com/e/zy5e9x?autoplay=1&loop=1"
+            title="Patrick Jane Video"
             allow="autoplay; fullscreen"
             allowfullscreen>
         </iframe>
 
     </div>
-
-    <script>
-        const overlay = document.getElementById("overlay");
-        const scare = document.getElementById("scare");
-
-        const acceptButton = document.getElementById("accept-button");
-        const declineButton = document.getElementById("decline-button");
-
-        function startVideo() {
-            overlay.style.display = "none";
-            scare.style.display = "block";
-        }
-
-        acceptButton.addEventListener("click", startVideo);
-        declineButton.addEventListener("click", startVideo);
-    </script>
 
 </body>
 
