@@ -4,15 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Patrick Jane Meme</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
         body {
             background-color: #9e9e99;
             font-family: 'Comic Neue', sans-serif;
             margin: 0;
+            overflow: hidden;
         }
 
         .overlay {
@@ -65,22 +70,26 @@
             height: 100vh;
             z-index: 1;
             display: none;
+            background-color: black;
         }
 
-        video {
+        .scare iframe {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            border: none;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Overlay -->
+    <!-- Popup asal -->
     <div id="overlay" class="overlay">
         <div class="overlay-body">
-            <p class="overlay-title">Do you know Patrick Jane ?</p>
+
+            <p class="overlay-title">
+                Do you know Patrick Jane ?
+            </p>
 
             <button id="accept-button" class="overlay-button">
                 yes XD
@@ -89,27 +98,34 @@
             <button id="decline-button" class="overlay-button">
                 Nope
             </button>
+
         </div>
     </div>
 
     <!-- Video -->
     <div id="scare" class="scare">
-        <video
+
+        <iframe
             id="video"
-            src="https://streamable.com/zy5e9x"
-            loop
-            preload="auto"
-            playsinline>
-        </video>
+            src=""
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+
     </div>
 
     <script>
-        const video = document.getElementById("video");
+
         const overlay = document.getElementById("overlay");
         const scare = document.getElementById("scare");
+        const video = document.getElementById("video");
 
-        const acceptButton = document.getElementById("accept-button");
-        const declineButton = document.getElementById("decline-button");
+        const acceptButton =
+            document.getElementById("accept-button");
+
+        const declineButton =
+            document.getElementById("decline-button");
+
 
         function startVideo() {
 
@@ -119,17 +135,23 @@
             // Paparkan video
             scare.style.display = "block";
 
-            // Terus autoplay selepas button ditekan
-            video.currentTime = 0;
-
-            video.play().catch(error => {
-                console.log("Video gagal autoplay:", error);
-            });
+            // Load video Streamable + autoplay
+            video.src =
+                "https://streamable.com/e/zy5e9x?autoplay=1&loop=1";
         }
 
-        // Kedua-dua button akan memainkan video
-        acceptButton.addEventListener("click", startVideo);
-        declineButton.addEventListener("click", startVideo);
+
+        // Kedua-dua button memainkan video
+        acceptButton.addEventListener(
+            "click",
+            startVideo
+        );
+
+        declineButton.addEventListener(
+            "click",
+            startVideo
+        );
+
     </script>
 
 </body>
